@@ -8,7 +8,7 @@ import React from 'react';
 const screens = {
     Home:{
         screen:Home,
-        navigationOptions : ({navigation}) => {
+        navigationOptions : ({navigation}) => { // all use react-navigation are have props navigation
             return {
                 headerTitle:() => <Header navigation={navigation} title="GameZone" />,
                 // flex: 1,
