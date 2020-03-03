@@ -1,15 +1,21 @@
 version: 4
 jobs:
     build:
-        docker:
-            - image: yarnpkg/node-yarn
         branches:
             only:
                 - master123
+        docker:
+            - image: yarnpkg/node-yarn
         steps:
             - checkout
+            - restore_cache:
+                keys:
+                  - node_modules-v1-{{ checksum "tutorial/react-native-2/gamezone/yarn.lock" }}
             - run:
                 name: Greeting
-                command: echo this is demo CircleCI
-                command: npm install
-                command: yarn install
+                command: |
+                        echo this is demo CircleCI && npm install && yarn install
+            - save_cache:
+                key: node_modules-v1-{{ checksum "tutorial/react-native-2/gamezone/yarn.lock" }}
+                paths:
+                    - node_modules
