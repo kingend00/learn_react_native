@@ -5,9 +5,11 @@ jobs:
             - image: yarnpkg/node-yarn
         branches:
             only:
-                - master
+                - master123
         steps:
             - checkout
             - run:
                 name: Greeting
                 command: echo this is demo CircleCI
+                command: npm install
+                command: yarn install
