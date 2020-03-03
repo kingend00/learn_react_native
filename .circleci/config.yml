@@ -1,0 +1,13 @@
+version: 4
+jobs:
+    build:
+        docker:
+            - image: yarnpkg/node-yarn
+        branches:
+            only:
+                - master
+        step:
+            - checkout
+            - run:
+                name: Greeting
+                command: echo this is demo CircleCI

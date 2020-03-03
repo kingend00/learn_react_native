@@ -13,7 +13,7 @@ const ReviewSchema = yup.object({
     })
 })
 
-export default function ReviewForm(props){
+export default function ReviewForm({addReview}){
     return (
         <View style={globalStyles.container}>
             <Formik
@@ -22,7 +22,7 @@ export default function ReviewForm(props){
                 onSubmit={(values,actions) =>{
                     actions.resetForm();
                     console.log(values)
-                    props.addReview(values)
+                    addReview(values)
                 }}
             >
             {(props) => (         
