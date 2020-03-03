@@ -6,7 +6,7 @@ jobs:
         branches:
             only:
                 - master
-        step:
+        steps:
             - checkout
             - run:
                 name: Greeting
